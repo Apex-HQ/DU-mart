@@ -10,5 +10,6 @@
     </div>
     <strong>{ data.record?.price }</strong>
     <h1>{ data.record?.name }</h1>
+    <h1>{ data.record?.category }</h1>
     <h1>{ data.record?.expand?.seller.username }</h1>
 </div>
