@@ -1,6 +1,8 @@
 <script lang="ts">
+  import categories from "@/categories";
   import { Button } from "@/components/ui/button";
   import { Input } from "@/components/ui/input";
+  import { Select, SelectContent, SelectGroup, SelectInput, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
   import Textarea from "@/components/ui/textarea/textarea.svelte";
   import { Image } from 'lucide-svelte'
 
@@ -9,12 +11,6 @@
   let files: FileList
 
   let file_urls: string[] = []
-
-  const categories = [
-    'accessories',
-    'gadget',
-    'books'
-  ]
 
   function handleChange(){
 
@@ -46,9 +42,28 @@
                 <img src="{file_urls[0]}" alt="file" class="h-full w-full object-cover">
             </div>
 
+            <Input name="price" class="w-full" type="number" placeholder="Price - NGN" required />
+
             <Input name="name" class="w-full" type="text" placeholder="Product name" required />
 
             <Textarea placeholder="Product Description" name="description" class="w-full resize-none" required/>
+            
+            <Select>
+              <SelectTrigger class="w-full">
+                <SelectValue placeholder="Pick a Category"/>
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>Categories</SelectLabel>
+                  {#each categories as category}
+                    <SelectItem value={category} label={category}
+                      >{category}</SelectItem
+                    >
+                  {/each}
+                </SelectGroup>
+              </SelectContent>
+              <SelectInput name="category" required/>
+            </Select>
 
             <Button class="w-full" type="submit">Post</Button>
         {/if}
