@@ -3,18 +3,8 @@
   import { Input } from "@/components/ui/input";
   import { Separator } from "@/components/ui/separator"; 
   import { Toaster, toast } from 'svelte-sonner'
-
-
-
-  // import { page } from '$app/stores';
-  // import { Avatar } from "bits-ui";
-
-
-  // import * as Tabs from "$lib/components/ui/tabs";
-  // import * as Card from "$lib/components/ui/card";
-  // import { Label } from "$lib/components/ui/label";
-
-
+  import { page } from '$app/stores';
+  import { Avatar } from "bits-ui";
   // import { Avatar } from "@/components/ui/avatar";
 
   // $: if ($page.url.searchParams.get('success') === 'true') {
@@ -34,9 +24,14 @@
 
 <div class="flex-col mb-12 mt-28 sm:mt-40 items-center justify-center space-x-3">
 
-  <h1 class="font-black text-center text-4xl">Create your DUmart account...</h1>
+  <!-- <Avatar.Root class="rounded-full h-6 w-6 items-center justify-center">
+    <Avatar.Image src="https://github.com/shadcn.png" alt="@shadcn" />
+    <Avatar.Fallback>CN</Avatar.Fallback>
+  </Avatar.Root> -->
 
-  <div class="items-center justify-center p-4 flex">
+  <h1 class="font-black text-center justify-center text-4xl">Create your DUmart account...</h1>
+
+  <div class="h-full w-full items-center justify-center p-4 flex">
    
       <form method="post" class="flex flex-col items-center gap-4 w-full md:w-96">
           <Input required name="username" 
@@ -57,9 +52,7 @@
             <Button variant="link" href="/login">Login</Button>
           </div>
       </form>
-
-
-      
+  
   </div>
 </div>
 
